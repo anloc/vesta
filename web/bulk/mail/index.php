@@ -16,7 +16,7 @@ $domain = $_POST['domain'];
 $account = $_POST['account'];
 $action = $_POST['action'];
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     if (empty($account)) {
         switch ($action) {
             case 'delete': $cmd='v-delete-mail-domain';

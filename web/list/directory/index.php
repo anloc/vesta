@@ -10,7 +10,7 @@ if ((!isset($_SESSION['FILEMANAGER_KEY'])) || (empty($_SESSION['FILEMANAGER_KEY'
 }
 
 // Check login_as feature
-if (($_SESSION['user'] == 'admin') && (!empty($_SESSION['look']))) {
+if (($_SESSION['user'] == 'gosweb') && (!empty($_SESSION['look']))) {
     $user=$_SESSION['look'];
 }
 

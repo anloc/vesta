@@ -11,7 +11,7 @@ if ((!isset($_GET['token'])) || ($_SESSION['token'] != $_GET['token'])) {
     exit();
 }
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     exec (VESTA_CMD."v-add-cron-vesta-autoupdate", $output, $return_var);
     $_SESSION['error_msg'] = __('Autoupdate has been successfully enabled');
     unset($output);

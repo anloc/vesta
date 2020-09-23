@@ -15,7 +15,7 @@ if ((!isset($_POST['token'])) || ($_SESSION['token'] != $_POST['token'])) {
 $domain = $_POST['domain'];
 $action = $_POST['action'];
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     switch ($action) {
         case 'delete': $cmd='v-delete-domain';
             break;

@@ -11,7 +11,7 @@ if ((!isset($_GET['token'])) || ($_SESSION['token'] != $_GET['token'])) {
     exit();
 }
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     if (!empty($_GET['pkg'])) {
         $v_pkg = escapeshellarg($_GET['pkg']);
         exec (VESTA_CMD."v-update-sys-vesta ".$v_pkg, $output, $return_var);

@@ -22,7 +22,7 @@ if (empty($q)) {
 
 // Data
 $q = escapeshellarg($q);
-$command = $_SESSION['user'] == 'admin'
+$command = $_SESSION['user'] == 'gosweb'
            ? "v-search-object $q json"
            : "v-search-user-object $user $q json";
 

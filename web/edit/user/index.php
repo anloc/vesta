@@ -14,7 +14,7 @@ if (empty($_GET['user'])) {
 }
 
 // Edit as someone else?
-if (($_SESSION['user'] == 'admin') && (!empty($_GET['user']))) {
+if (($_SESSION['user'] == 'gosweb') && (!empty($_GET['user']))) {
     $user=$_GET['user'];
     $v_username=$_GET['user'];
 } else {
@@ -71,7 +71,7 @@ exec (VESTA_CMD."v-list-sys-shells json", $output, $return_var);
 $shells = json_decode(implode('', $output), true);
 unset($output);
 
-// Are you admin?
+// Are you gosweb?
 
 // Check POST request
 if (!empty($_POST['save'])) {
@@ -95,8 +95,8 @@ if (!empty($_POST['save'])) {
         $v_password = escapeshellarg($_POST['v_password']);
     }
 
-    // Change package (admin only)
-    if (($v_package != $_POST['v_package']) && ($_SESSION['user'] == 'admin') && (empty($_SESSION['error_msg']))) {
+    // Change package (gosweb only)
+    if (($v_package != $_POST['v_package']) && ($_SESSION['user'] == 'gosweb') && (empty($_SESSION['error_msg']))) {
         $v_package = escapeshellarg($_POST['v_package']);
         exec (VESTA_CMD."v-change-user-package ".escapeshellarg($v_username)." ".$v_package, $output, $return_var);
         check_return_code($return_var,$output);
@@ -114,8 +114,8 @@ if (!empty($_POST['save'])) {
         unset($output);
     }
 
-    // Change shell (admin only)
-    if (($v_shell != $_POST['v_shell']) && ($_SESSION['user'] == 'admin') && (empty($_SESSION['error_msg']))) {
+    // Change shell (gosweb only)
+    if (($v_shell != $_POST['v_shell']) && ($_SESSION['user'] == 'gosweb') && (empty($_SESSION['error_msg']))) {
         $v_shell = escapeshellarg($_POST['v_shell']);
         exec (VESTA_CMD."v-change-user-shell ".escapeshellarg($v_username)." ".$v_shell, $output, $return_var);
         check_return_code($return_var,$output);

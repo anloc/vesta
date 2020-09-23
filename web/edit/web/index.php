@@ -14,7 +14,7 @@ if (empty($_GET['domain'])) {
 }
 
 // Edit as someone else?
-if (($_SESSION['user'] == 'admin') && (!empty($_GET['user']))) {
+if (($_SESSION['user'] == 'gosweb') && (!empty($_GET['user']))) {
     $user=escapeshellarg($_GET['user']);
 }
 
@@ -153,8 +153,8 @@ if (!empty($_POST['save'])) {
         }
     }
 
-    // Change template (admin only)
-    if (($v_template != $_POST['v_template']) && ( $_SESSION['user'] == 'admin') && (empty($_SESSION['error_msg']))) {
+    // Change template (gosweb only)
+    if (($v_template != $_POST['v_template']) && ( $_SESSION['user'] == 'gosweb') && (empty($_SESSION['error_msg']))) {
         $v_template = escapeshellarg($_POST['v_template']);
         exec (VESTA_CMD."v-change-web-domain-tpl ".$v_username." ".$v_domain." ".$v_template." no", $output, $return_var);
         check_return_code($return_var,$output);
@@ -219,7 +219,7 @@ if (!empty($_POST['save'])) {
     }
 
     // Change backend template
-    if ((!empty($_SESSION['WEB_BACKEND'])) && ( $v_backend_template != $_POST['v_backend_template']) && ( $_SESSION['user'] == 'admin') && (empty($_SESSION['error_msg']))) {
+    if ((!empty($_SESSION['WEB_BACKEND'])) && ( $v_backend_template != $_POST['v_backend_template']) && ( $_SESSION['user'] == 'gosweb') && (empty($_SESSION['error_msg']))) {
         $v_backend_template = $_POST['v_backend_template'];
         exec (VESTA_CMD."v-change-web-domain-backend-tpl ".$v_username." ".$v_domain." ".escapeshellarg($v_backend_template), $output, $return_var);
         check_return_code($return_var,$output);
@@ -235,8 +235,8 @@ if (!empty($_POST['save'])) {
         $restart_proxy = 'yes';
     }
 
-    // Change proxy template / Update extension list (admin only)
-    if ((!empty($_SESSION['PROXY_SYSTEM'])) && (!empty($v_proxy)) && (!empty($_POST['v_proxy'])) && (empty($_SESSION['error_msg'])) && ($_SESSION['user'] == 'admin')) {
+    // Change proxy template / Update extension list (gosweb only)
+    if ((!empty($_SESSION['PROXY_SYSTEM'])) && (!empty($v_proxy)) && (!empty($_POST['v_proxy'])) && (empty($_SESSION['error_msg'])) && ($_SESSION['user'] == 'gosweb')) {
         $ext = preg_replace("/\n/", " ", $_POST['v_proxy_ext']);
         $ext = preg_replace("/,/", " ", $ext);
         $ext = preg_replace('/\s+/', ' ',$ext);

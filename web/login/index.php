@@ -16,7 +16,7 @@ if (isset($_GET['logout'])) {
 
 // Login as someone else
 if (isset($_SESSION['user'])) {
-    if ($_SESSION['user'] == 'admin' && !empty($_GET['loginas'])) {
+    if ($_SESSION['user'] == 'gosweb' && !empty($_GET['loginas'])) {
         exec (VESTA_CMD . "v-list-user ".escapeshellarg($_GET['loginas'])." json", $output, $return_var);
         if ( $return_var == 0 ) {
             $data = json_decode(implode('', $output), true);
@@ -76,8 +76,8 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
                 $ERROR = "<a class=\"error\">".__('Invalid username or password')."</a>";
             } else {
 
-                // Make root admin user
-                if ($_POST['user'] == 'root') $v_user = 'admin';
+                // Make root gosweb user
+                if ($_POST['user'] == 'root') $v_user = 'gosweb';
 
                 // Get user speciefic parameters
                 exec (VESTA_CMD . "v-list-user ".$v_user." json", $output, $return_var);

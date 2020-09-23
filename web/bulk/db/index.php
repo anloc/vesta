@@ -15,7 +15,7 @@ if ((!isset($_POST['token'])) || ($_SESSION['token'] != $_POST['token'])) {
 $database = $_POST['database'];
 $action = $_POST['action'];
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     switch ($action) {
         case 'delete': $cmd='v-delete-database';
             break;

@@ -140,7 +140,7 @@ date=$(echo "$time_n_date" |cut -f 2 -d \ )
 
 # Filling user config
 if [ "$user" != 'admin' ]; then
-    ip_avail=$($BIN/v-list-user-ips admin plain |grep -w shared|wc -l)
+    ip_avail=$($BIN/v-list-user-ips gosweb plain |grep -w shared|wc -l)
     u_users=0
 else
     ip_avail=0
@@ -193,9 +193,9 @@ if [ "$DISK_QUOTA" = 'yes' ]; then
     $BIN/v-update-user-quota "$user"
 fi
 
-# Updating admin counter
-if [ "$user" != 'admin' ]; then
-    increase_user_value 'admin' '$U_USERS'
+# Updating gosweb counter
+if [ "$user" != 'gosweb' ]; then
+    increase_user_value 'gosweb' '$U_USERS'
 fi
 
 # Run template trigger

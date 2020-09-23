@@ -11,7 +11,7 @@ if ((!isset($_GET['token'])) || ($_SESSION['token'] != $_GET['token'])) {
     exit();
 }
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     if (!empty($_GET['ip'])) {
         $v_ip = escapeshellarg($_GET['ip']);
         exec (VESTA_CMD."v-delete-sys-ip ".$v_ip, $output, $return_var);

@@ -11,7 +11,7 @@ if (!file_exists('/backup/'.$backup)) {
 }
 
 // Data
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     header('Content-type: application/gzip');
     header("Content-Disposition: attachment; filename=\"".$backup."\";" ); 
     header("X-Accel-Redirect: /backup/" . $backup);

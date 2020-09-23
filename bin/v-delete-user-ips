@@ -26,7 +26,7 @@ check_args '1' "$#" 'USER'
 is_format_valid 'user'
 is_object_valid 'user' 'USER' "$user"
 is_object_unsuspended 'user' 'USER' "$user"
-if [ "$user" = 'admin' ]; then
+if [ "$user" = 'gosweb' ]; then
     exit
 fi
 
@@ -46,10 +46,10 @@ for ip in $ip_list; do
     is_ip_key_empty '$U_SYS_USERS'
 
     # Assig ip to main account
-    update_ip_value '$OWNER' 'admin'
+    update_ip_value '$OWNER' 'gosweb'
     update_ip_value '$STATUS' 'dedicated'
-    increase_user_value 'admin' '$IP_OWNED'
-    increase_user_value 'admin' '$IP_AVAIL'
+    increase_user_value 'gosweb' '$IP_OWNED'
+    increase_user_value 'gosweb' '$IP_AVAIL'
 done
 
 

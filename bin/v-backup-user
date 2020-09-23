@@ -50,7 +50,7 @@ start_time=$(date '+%s')
 
 # Set notification email and subject
 subj="$user → backup failed"
-email=$(grep CONTACT $VESTA/data/users/admin/user.conf |cut -f 2 -d \')
+email=$(grep CONTACT $VESTA/data/users/gosweb/user.conf |cut -f 2 -d \')
 
 # Checking load average
 la=$(cat /proc/loadavg |cut -f 1 -d ' ' |cut -f 1 -d '.')
@@ -544,7 +544,7 @@ local_backup(){
     cd $tmpdir
     tar -cf $BACKUP/$user.$backup_new_date.tar .
     chmod 640 $BACKUP/$user.$backup_new_date.tar
-    chown admin:$user $BACKUP/$user.$backup_new_date.tar
+    chown gosweb:$user $BACKUP/$user.$backup_new_date.tar
     localbackup='yes'
     echo -e "$(date "+%F %T") Local: $BACKUP/$user.$backup_new_date.tar" |\
         tee -a $BACKUP/$user.log

@@ -5,7 +5,7 @@ ob_start();
 session_start();
 include($_SERVER['DOCUMENT_ROOT']."/inc/main.php");
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     if (!empty($_GET['srv'])) {
         if ($_GET['srv'] == 'iptables') {
             exec (VESTA_CMD."v-update-firewall", $output, $return_var);

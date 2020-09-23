@@ -11,7 +11,7 @@ if ((!isset($_GET['token'])) || ($_SESSION['token'] != $_GET['token'])) {
     exit();
 }
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     if (!empty($_GET['hostname'])) {
         exec (VESTA_CMD."v-restart-system yes", $output, $return_var);
         $_SESSION['error_msg'] = 'The system is going down for reboot NOW!';

@@ -28,7 +28,7 @@ server {
         set $cache_uri 'null cache';
     }   
 
-    if ($request_uri ~* "(/wp-admin/|/xmlrpc.php|/wp-(app|cron|login|register|mail).php
+    if ($request_uri ~* "(/wp-gosweb/|/xmlrpc.php|/wp-(app|cron|login|register|mail).php
                           |wp-.*.php|/feed/|index.php|wp-comments-popup.php
                           |wp-links-opml.php|wp-locations.php |sitemap(_index)?.xml
                           |[a-z0-9_-]+-sitemap([0-9]+)?.xml)") {

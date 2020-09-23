@@ -6,7 +6,7 @@ $TAB = 'STATS';
 include($_SERVER['DOCUMENT_ROOT']."/inc/main.php");
 
 // Data
-if ($user == 'admin') {
+if ($user == 'gosweb') {
     if (empty($_GET['user'])) {
         exec (VESTA_CMD."v-list-users-stats json", $output, $return_var);
         $data = json_decode(implode('', $output), true);

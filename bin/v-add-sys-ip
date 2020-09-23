@@ -18,7 +18,7 @@
 ip=${1// /}
 netmask=$2
 interface="${3-eth0}"
-user="${4-admin}"
+user="${4-gosweb}"
 ip_status="${5-shared}"
 ip_name=$6
 nat_ip=$7

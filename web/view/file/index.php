@@ -8,7 +8,7 @@ if ((!isset($_SESSION['FILEMANAGER_KEY'])) || (empty($_SESSION['FILEMANAGER_KEY'
 }
 
 $user = $_SESSION['user'];
-if (($_SESSION['user'] == 'admin') && (!empty($_SESSION['look']))) {
+if (($_SESSION['user'] == 'gosweb') && (!empty($_SESSION['look']))) {
     $user=$_SESSION['look'];
 }
 

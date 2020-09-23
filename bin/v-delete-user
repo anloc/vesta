@@ -99,9 +99,9 @@ rm -f /var/spool/cron/$user
 rm -f /var/spool/cron/crontabs/$user
 rm -rf $USER_DATA
 
-# Updating admin counter
-if [ "$user" != 'admin' ]; then
-    decrease_user_value 'admin' '$U_USERS'
+# Updating gosweb counter
+if [ "$user" != 'gosweb' ]; then
+    decrease_user_value 'gosweb' '$U_USERS'
 fi
 
 
@@ -110,7 +110,7 @@ fi
 #----------------------------------------------------------#
 
 # Logging
-log_history "deleted system user $user" '' 'admin'
+log_history "deleted system user $user" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

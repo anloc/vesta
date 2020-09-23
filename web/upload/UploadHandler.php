@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT']."/inc/main.php");
 
 // Check login_as feature
 $user = $_SESSION['user'];
-if (($_SESSION['user'] == 'admin') && (!empty($_SESSION['look']))) {
+if (($_SESSION['user'] == 'gosweb') && (!empty($_SESSION['look']))) {
     $user=$_SESSION['look'];
 }
 

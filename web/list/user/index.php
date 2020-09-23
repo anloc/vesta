@@ -6,7 +6,7 @@ $TAB = 'USER';
 include($_SERVER['DOCUMENT_ROOT']."/inc/main.php");
 
 // Data
-if ($user == 'admin') {
+if ($user == 'gosweb') {
     exec (VESTA_CMD . "v-list-users json", $output, $return_var);
 } else {
     exec (VESTA_CMD . "v-list-user ".$user." json", $output, $return_var);

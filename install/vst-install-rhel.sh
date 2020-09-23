@@ -27,7 +27,9 @@ software="nginx awstats bc bind bind-libs bind-utils clamav-server clamav-update
     php-mcrypt phpMyAdmin php-mysql php-pdo phpPgAdmin php-pgsql php-soap
     php-tidy php-xml php-xmlrpc postgresql postgresql-contrib
     postgresql-server proftpd roundcubemail rrdtool rsyslog screen
-    spamassassin sqlite sudo tar telnet unzip vesta vesta-ioncube vesta-nginx
+    spamassassin sqlite sudo tar telnet unzip"
+
+software2="vesta-ioncube vesta-nginx
     vesta-php vesta-softaculous vim-common vsftpd webalizer which zip"
 
 # Fix for old releases
@@ -626,6 +628,8 @@ if [ "$iptables" = 'no' ] || [ "$fail2ban" = 'no' ]; then
 fi
 
 
+
+
 #----------------------------------------------------------#
 #                     Install packages                     #
 #----------------------------------------------------------#
@@ -643,6 +647,21 @@ if [ $? -ne 0 ]; then
     fi
 fi
 check_result $? "yum install failed"
+
+yum localinstall /root/vesta-0.9.8-26.x86_64.rpm
+
+yum install -y $software2
+if [ $? -ne 0 ]; then
+    if [ "$remi" = 'yes' ]; then
+        yum -y --disablerepo=* \
+            --enablerepo="*base,*updates,nginx,epel,vesta,remi*" \
+            install $software2
+    else
+        yum -y --disablerepo=* --enablerepo="*base,*updates,nginx,epel,vesta" \
+            install $software2
+    fi
+fi
+check_result $? "yum install 2 failed"
 
 
 #----------------------------------------------------------#

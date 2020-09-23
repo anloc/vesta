@@ -16,7 +16,7 @@ if ((!isset($_POST['token'])) || ($_SESSION['token'] != $_POST['token'])) {
 $pkg = $_POST['pkg'];
 $action = $_POST['action'];
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     switch ($action) {
         case 'update': $cmd='v-update-sys-vesta';
             break;

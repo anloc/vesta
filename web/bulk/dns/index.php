@@ -16,7 +16,7 @@ $domain = $_POST['domain'];
 $record = $_POST['record'];
 $action = $_POST['action'];
 
-if ($_SESSION['user'] == 'admin') {
+if ($_SESSION['user'] == 'gosweb') {
     if (empty($record)) {
         switch ($action) {
             case 'delete': $cmd='v-delete-dns-domain';

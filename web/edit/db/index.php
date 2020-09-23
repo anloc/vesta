@@ -14,7 +14,7 @@ if (empty($_GET['database'])) {
 }
 
 // Edit as someone else?
-if (($_SESSION['user'] == 'admin') && (!empty($_GET['user']))) {
+if (($_SESSION['user'] == 'gosweb') && (!empty($_GET['user']))) {
     $user=escapeshellarg($_GET['user']);
 }
 

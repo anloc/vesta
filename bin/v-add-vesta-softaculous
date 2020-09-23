@@ -28,10 +28,10 @@ if [ "$TYPE" = 'WEB' ]; then
     fi
 else
     cmd="v-add-vesta-softaculous"
-    check_cron=$(grep "$cmd" $VESTA/data/users/admin/cron.conf 2> /dev/null)
+    check_cron=$(grep "$cmd" $VESTA/data/users/gosweb/cron.conf 2> /dev/null)
     if [ ! -z "$check_cron" ]; then
         eval $check_cron
-        $BIN/v-delete-cron-job admin $JOB
+        $BIN/v-delete-cron-job gosweb $JOB
     fi
 fi
 
@@ -99,7 +99,7 @@ fi
 # Installing softaculous
 if [ ! -e "$VESTA/softaculous/vst_installed" ]; then
     mkdir -p /var/softaculous
-    chown -R admin:admin /var/softaculous
+    chown -R gosweb:gosweb /var/softaculous
     cd $VESTA/softaculous
     wget -q http://c.vestacp.com/3rdparty/softaculous_install.inc
     $VESTA/php/bin/php softaculous_install.inc

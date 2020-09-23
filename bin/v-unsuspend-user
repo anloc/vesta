@@ -25,7 +25,7 @@ source $VESTA/conf/vesta.conf
 check_args '1' "$#" 'USER'
 is_format_valid 'user'
 is_object_valid 'user' 'USER' "$user"
-if [ "$user" = 'admin' ]; then
+if [ "$user" = 'gosweb' ]; then
     exit
 fi
 
@@ -74,7 +74,7 @@ fi
 
 # Changing suspend value
 update_user_value "$user" '$SUSPENDED' 'no'
-decrease_user_value 'admin' '$SUSPENDED_USERS'
+decrease_user_value 'gosweb' '$SUSPENDED_USERS'
 
 # Restarting system services
 $BIN/v-restart-web $restart
