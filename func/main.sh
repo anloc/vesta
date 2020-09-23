@@ -134,11 +134,11 @@ is_package_full() {
 # User owner for reseller plugin
 get_user_owner() {
     if [ -z "$RESELLER_KEY" ]; then
-        owner='admin'
+        owner='gosweb'
     else
         owner=$(grep "^OWNER" $USER_DATA/user.conf| cut -f 2 -d \')
         if [ -z "$owner" ]; then
-            owner='admin'
+            owner='gosweb'
         fi
     fi
 }

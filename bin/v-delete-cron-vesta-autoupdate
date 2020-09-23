@@ -10,7 +10,7 @@
 #----------------------------------------------------------#
 
 # Argument definition
-user=admin
+user=gosweb
 
 # Includes
 source $VESTA/func/main.sh

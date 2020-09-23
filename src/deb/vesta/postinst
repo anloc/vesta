@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run triggers only on updates
-if [ ! -e "/usr/local/vesta/data/users/admin" ]; then
+if [ ! -e "/usr/local/vesta/data/users/gosweb" ]; then
     exit
 fi
 

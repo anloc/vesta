@@ -93,9 +93,9 @@ chmod 644 $VESTA/data/packages/$package.pkg
 
 # Logging
 if [ "$rewrite" != 'yes' ]; then
-    log_history "added user package $package" '' 'admin'
+    log_history "added user package $package" '' 'gosweb'
 else
-    log_history "updated user package $package" '' 'admin'
+    log_history "updated user package $package" '' 'gosweb'
 fi
 log_event "$OK" "$ARGUMENTS"
 

@@ -10,7 +10,7 @@
 #----------------------------------------------------------#
 
 # Argument definition
-user='admin'
+user='gosweb'
 format=${1-shell}
 
 # Includes

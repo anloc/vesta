@@ -91,7 +91,7 @@ if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
 }
 
-if (isset($_SESSION['look']) && ( $_SESSION['look'] != 'admin' )) {
+if (isset($_SESSION['look']) && ( $_SESSION['look'] != 'gosweb' )) {
     $user = $_SESSION['look'];
 }
 
@@ -151,12 +151,12 @@ function render_page($user, $TAB, $page) {
     //*/
 
     // Body
-    if (($_SESSION['user'] !== 'admin') && (@include($__template_dir . "user/$page.html"))) {
+    if (($_SESSION['user'] !== 'gosweb') && (@include($__template_dir . "user/$page.html"))) {
         // User page loaded
     } else {
-        // Not admin or user page doesn't exist
-        // Load admin page
-        @include($__template_dir . "admin/$page.html");
+        // Not gosweb or user page doesn't exist
+        // Load gosweb page
+        @include($__template_dir . "gosweb/$page.html");
     }
 
     // Including common js files
@@ -194,8 +194,8 @@ function top_panel($user, $TAB) {
     unset($output);
 
 
-    if ( $user == 'admin' ) {
-        include(dirname(__FILE__).'/../templates/admin/panel.html');
+    if ( $user == 'gosweb' ) {
+        include(dirname(__FILE__).'/../templates/gosweb/panel.html');
     } else {
         include(dirname(__FILE__).'/../templates/user/panel.html');
     }

@@ -49,7 +49,7 @@ rm -f $VESTA/data/packages/$package.pkg
 #                       Vesta                              #
 #----------------------------------------------------------#
 
-log_history "deleted user package $package" '' 'admin'
+log_history "deleted user package $package" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

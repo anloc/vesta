@@ -17,7 +17,7 @@ if ($_SESSION['user'] == 'gosweb') {
     header("X-Accel-Redirect: /backup/" . $backup);
 }
 
-if ((!empty($_SESSION['user'])) && ($_SESSION['user'] != 'admin')) {
+if ((!empty($_SESSION['user'])) && ($_SESSION['user'] != 'gosweb')) {
     if (strpos($backup, $user.'.') === 0) {
         header('Content-type: application/gzip');
         header("Content-Disposition: attachment; filename=\"".$backup."\";" ); 

@@ -50,7 +50,7 @@ update_ip_value '$STATUS' "$ip_status"
 #----------------------------------------------------------#
 
 # Logging
-log_history "changed $ip status to $ip_status" '' 'admin'
+log_history "changed $ip status to $ip_status" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

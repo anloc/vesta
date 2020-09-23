@@ -36,7 +36,7 @@ if [ -f "/etc/roundcube/plugins/password/config.inc.php" ]; then
     if [ ! -d "/var/log/roundcube" ]; then
         mkdir /var/log/roundcube
     fi
-    chown admin:admin /var/log/roundcube
+    chown gosweb:gosweb /var/log/roundcube
 
 fi
 

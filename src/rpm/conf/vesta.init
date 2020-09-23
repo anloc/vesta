@@ -22,8 +22,8 @@ nignx_conf="/usr/local/vesta/nginx/conf/nginx.conf"
 php="/usr/local/vesta/php/sbin/vesta-php"
 php_conf="/usr/local/vesta/php/etc/php-fpm.conf"
 
-vesta_user=admin
-vesta_group=admin
+vesta_user=gosweb
+vesta_group=gosweb
 
 start() {
     [ -x $nginx ] || exit 5

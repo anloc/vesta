@@ -11,8 +11,8 @@
 #----------------------------------------------------------#
 
 whoami=$(whoami)
-if [ "$whoami" != "root" ] && [ "$whoami" != "admin" ] ; then
-    echo "You must be root or admin to execute this script";
+if [ "$whoami" != "root" ] && [ "$whoami" != "gosweb" ] ; then
+    echo "You must be root or gosweb to execute this script";
     exit 1;
 fi
 

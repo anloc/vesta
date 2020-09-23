@@ -170,7 +170,7 @@ fi
 * Wed Oct 22 2014 Serghey Rodin <builder@vestacp.com> - 0.9.8-11
 - Firewall support
 - Fail2ban support
-- Sudo support for admin user
+- Sudo support for gosweb user
 - Cron email reporting switch
 - Improved SSL validation
 - Minor design improvements
@@ -449,7 +449,7 @@ fi
 * Sun Jul 01 2012 Serghey Rodin <builder@vestacp.com> - 0.9.7-1
 - New web interface
 - Mail api
-- Changed vesta user with admin
+- Changed vesta user with gosweb
 
 * Wed Jan 25 2012 Serghey Rodin <builder@vestacp.com> - 0.9.6-3
 - Alpha preview of 'login as' function

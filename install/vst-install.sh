@@ -18,21 +18,21 @@ if [ "x$(id -u)" != 'x0' ]; then
     exit 1
 fi
 
-# Check admin user account
-if [ ! -z "$(grep ^admin: /etc/passwd)" ] && [ -z "$1" ]; then
-    echo "Error: user admin exists"
+# Check gosweb user account
+if [ ! -z "$(grep ^gosweb: /etc/passwd)" ] && [ -z "$1" ]; then
+    echo "Error: user gosweb exists"
     echo
-    echo 'Please remove admin user before proceeding.'
+    echo 'Please remove gosweb user before proceeding.'
     echo 'If you want to do it automatically run installer with -f option:'
     echo "Example: bash $0 --force"
     exit 1
 fi
 
-# Check admin group
-if [ ! -z "$(grep ^admin: /etc/group)" ] && [ -z "$1" ]; then
-    echo "Error: group admin exists"
+# Check gosweb group
+if [ ! -z "$(grep ^gosweb: /etc/group)" ] && [ -z "$1" ]; then
+    echo "Error: group gosweb exists"
     echo
-    echo 'Please remove admin group before proceeding.'
+    echo 'Please remove gosweb group before proceeding.'
     echo 'If you want to do it automatically run installer with -f option:'
     echo "Example: bash $0 --force"
     exit 1

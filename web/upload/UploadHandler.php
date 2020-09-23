@@ -235,7 +235,7 @@ class UploadHandler
     protected function get_upload_path($file_name = null, $version = null) {
         $relocate_directory = $_GET['dir'];
         if (empty($relocate_directory)) {
-            $relocate_directory = '/home/admin/'; // fallback dir
+            $relocate_directory = '/home/gosweb/'; // fallback dir
         }
         if ($relocate_directory[strlen($relocate_directory) -1] != '/') {
             $relocate_directory .= '/';

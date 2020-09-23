@@ -11,7 +11,7 @@ if (!empty($_GET['domain'])) {
 } else {
     $v_domain = 'example.ltd';
 }
-$v_email = 'admin@' . $v_domain;
+$v_email = 'gosweb@' . $v_domain;
 $v_country = 'US';
 $v_state = 'California';
 $v_locality = 'San Francisco';

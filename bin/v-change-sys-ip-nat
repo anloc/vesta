@@ -101,7 +101,7 @@ fi
 #----------------------------------------------------------#
 
 # Logging
-log_history "changed associated nat address on $ip to $nat_ip" '' 'admin'
+log_history "changed associated nat address on $ip to $nat_ip" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

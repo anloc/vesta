@@ -131,7 +131,7 @@ for user in $user_list; do
 done
 
 # Updating overall stats
-stats="$VESTA/data/users/admin/overall_stats.log"
+stats="$VESTA/data/users/gosweb/overall_stats.log"
 
 s="DATE='$DATE' TIME='$TIME' PACKAGE='default' IP_OWNED='$TOTAL_IP_OWNED'"
 s="$s DISK_QUOTA='0' U_DISK='$TOTAL_U_DISK' U_DISK_DIRS='$TOTAL_U_DISK_DIRS'"

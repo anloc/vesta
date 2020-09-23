@@ -57,7 +57,7 @@ fi
 update_user_value "$user" '$SHELL' "$shell"
 
 # Logging
-log_history "changed $user shell to $shell" '' 'admin'
+log_history "changed $user shell to $shell" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

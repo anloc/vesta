@@ -125,7 +125,7 @@ $BIN/v-restart-dns $restart
 check_result $? "DNS restart failed" >/dev/null
 
 # Logging
-log_history "changed dns template for $domain to $template" '' 'admin'
+log_history "changed dns template for $domain to $template" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

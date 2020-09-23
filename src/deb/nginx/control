@@ -2,7 +2,7 @@ Source: vesta-nginx
 Package: vesta-nginx
 Priority: optional
 Version: 0.9.8-26
-Section: admin
+Section: gosweb
 Maintainer: Serghey Rodin <skid@vestacp.com>
 Homepage: http://vestacp.com
 Architecture: amd64

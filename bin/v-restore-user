@@ -201,7 +201,7 @@ if [ -z "$check_user" ]; then
     email=$(get_user_value '$CONTACT')
 else
     create_user="yes"
-    email=$(grep CONTACT $VESTA/data/users/admin/user.conf | cut -f2 -d \')
+    email=$(grep CONTACT $VESTA/data/users/gosweb/user.conf | cut -f2 -d \')
 fi
 
 
@@ -780,7 +780,7 @@ sed -i "/v-restore-user $user /d" $VESTA/data/queue/backup.pipe
 
 # Update user counters
 $BIN/v-update-user-counters $user
-$BIN/v-update-user-counters admin
+$BIN/v-update-user-counters gosweb
 $BIN/v-update-sys-ip-counters
 
 # Logging

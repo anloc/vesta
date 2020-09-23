@@ -139,7 +139,7 @@ time=$(echo "$time_n_date" |cut -f 1 -d \ )
 date=$(echo "$time_n_date" |cut -f 2 -d \ )
 
 # Filling user config
-if [ "$user" != 'admin' ]; then
+if [ "$user" != 'gosweb' ]; then
     ip_avail=$($BIN/v-list-user-ips gosweb plain |grep -w shared|wc -l)
     u_users=0
 else
@@ -209,7 +209,7 @@ if [ ! -z "$SFTPJAIL_KEY" ]; then
 fi
 
 # Logging
-log_history "added system user $user" '' 'admin'
+log_history "added system user $user" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

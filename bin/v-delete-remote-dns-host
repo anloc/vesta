@@ -46,10 +46,10 @@ if [ "$check_cluster" -eq '0' ]; then
 
     # Delete cron job
     cmd="sudo /usr/local/vesta/bin/v-update-sys-queue dns-cluster"
-    check_cron=$(grep "$cmd" $VESTA/data/users/admin/cron.conf 2> /dev/null)
+    check_cron=$(grep "$cmd" $VESTA/data/users/gosweb/cron.conf 2> /dev/null)
     if [ ! -z "$check_cron" ]; then
         eval $check_cron
-        $BIN/v-delete-cron-job admin "$JOB"
+        $BIN/v-delete-cron-job gosweb "$JOB"
     fi
 fi
 
@@ -59,7 +59,7 @@ fi
 #----------------------------------------------------------#
 
 # Logging
-log_history "deleted remote dns server $host" '' 'admin'
+log_history "deleted remote dns server $host" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

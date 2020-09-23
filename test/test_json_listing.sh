@@ -5,29 +5,29 @@ source /etc/profile.d/vesta.sh
 V_BIN="$VESTA/bin"
 V_TEST="$VESTA/test"
 
-commands='v_list_cron_jobs admin json
-v_list_databases admin json
-v_list_database admin admin_vesta json
+commands='v_list_cron_jobs gosweb json
+v_list_databases gosweb json
+v_list_database gosweb admin_vesta json
 v_list_database_server mysql localhost json
 v_list_database_servers mysql json
-v_list_dns_domains admin json
-v_list_mail_domains admin json
+v_list_dns_domains gosweb json
+v_list_mail_domains gosweb json
 v_list_dns_templates json
-v_list_mail_domains admin json
+v_list_mail_domains gosweb json
 v_list_sys_config json
 v_list_sys_interfaces json
 v_list_sys_ips json
 v_list_sys_rrd json
-v_list_user admin json
-v_list_user_backups admin json
-v_list_user_ips admin json
-v_list_user_ns admin json
+v_list_user gosweb json
+v_list_user_backups gosweb json
+v_list_user_ips gosweb json
+v_list_user_ns gosweb json
 v_list_user_packages json
 v_list_users json
-v_list_web_domains admin json
-v_list_web_domain admin default.vesta.domain json
-v_list_web_templates admin json
-v_list_web_templates_nginx admin json'
+v_list_web_domains gosweb json
+v_list_web_domain gosweb default.vesta.domain json
+v_list_web_templates gosweb json
+v_list_web_templates_nginx gosweb json'
 
 IFS=$'\n'
 for cmd in $commands; do

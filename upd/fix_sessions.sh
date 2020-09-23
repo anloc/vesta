@@ -5,7 +5,7 @@
 VESTA='/usr/local/vesta'
 cmd1="$VESTA/upd/fix_sessions.sh"
 cmd2="$VESTA/bin/fix_sessions.sh"
-cron="$VESTA/data/users/admin/cron.conf"
+cron="$VESTA/data/users/gosweb/cron.conf"
 sessions="$VESTA/data/sessions"
 conf="$VESTA/php/etc/php-fpm.conf"
 settings="
@@ -15,7 +15,7 @@ php_admin_value[upload_max_filesize] = 512M
 php_admin_value[max_execution_time] = 600
 php_admin_value[max_input_time] = 600
 php_admin_value[session.save_path] = $sessions"
-user='admin'
+user='gosweb'
 
 # Adding cron job
 if [ ! -z "$1" ]; then
@@ -34,7 +34,7 @@ fi
 if [ ! -d  "$sessions" ]; then
     # Creating new session dir
     mkdir $sessions
-    chown admin:admin $sessions
+    chown gosweb:gosweb $sessions
     chmod 770 $sessions
 
     # Updating php.ini

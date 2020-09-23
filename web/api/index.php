@@ -5,7 +5,7 @@ if (isset($_POST['user']) || isset($_POST['hash'])) {
 
     // Authentication
     if (empty($_POST['hash'])) {
-        if ($_POST['user'] != 'admin') {
+        if ($_POST['user'] != 'gosweb') {
             echo 'Error: authentication failed';
             exit;
         }
@@ -13,10 +13,10 @@ if (isset($_POST['user']) || isset($_POST['hash'])) {
         $password = $_POST['password'];
         $v_ip = escapeshellarg($_SERVER['REMOTE_ADDR']);
         $output = '';
-        exec (VESTA_CMD."v-get-user-salt admin ".$v_ip." json" , $output, $return_var);
+        exec (VESTA_CMD."v-get-user-salt gosweb ".$v_ip." json" , $output, $return_var);
         $pam = json_decode(implode('', $output), true);
-        $salt = $pam['admin']['SALT'];
-        $method = $pam['admin']['METHOD'];
+        $salt = $pam['gosweb']['SALT'];
+        $method = $pam['gosweb']['METHOD'];
 
         if ($method == 'md5' ) {
             $hash = crypt($password, '$1$'.$salt.'$');
@@ -36,7 +36,7 @@ if (isset($_POST['user']) || isset($_POST['hash'])) {
         fclose($fp);
 
         // Check user hash
-        exec(VESTA_CMD ."v-check-user-hash admin ".$v_hash." ".$v_ip,  $output, $return_var);
+        exec(VESTA_CMD ."v-check-user-hash gosweb ".$v_hash." ".$v_ip,  $output, $return_var);
         unset($output);
 
         // Remove tmp file

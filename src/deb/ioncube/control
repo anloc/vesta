@@ -2,7 +2,7 @@ Source: vesta-ioncube
 Package: vesta-ioncube
 Priority: optional
 Version: 0.9.8-26
-Section: admin
+Section: gosweb
 Maintainer: Serghey Rodin <skid@vestacp.com>
 Homepage: https://www.ioncube.com
 Architecture: amd64

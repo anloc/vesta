@@ -117,7 +117,7 @@ if [ ! -z "$OWNER" ]; then
     decrease_user_value "$OWNER" '$IP_OWNED'
 fi
 
-if [ "$OWNER" = 'admin' ]; then
+if [ "$OWNER" = 'gosweb' ]; then
     if [ "$STATUS" = 'shared' ]; then
         for user in $(ls $VESTA/data/users/); do
             decrease_user_value "$user" '$IP_AVAIL'

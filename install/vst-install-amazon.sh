@@ -54,8 +54,8 @@ help() {
   -l, --lang              Default language                default: en
   -y, --interactive       Interactive install   [yes|no]  default: yes
   -s, --hostname          Set hostname
-  -e, --email             Set admin email
-  -p, --password          Set admin password
+  -e, --email             Set gosweb email
+  -p, --password          Set gosweb password
   -f, --force             Force installation
   -h, --help              Print this help
 
@@ -232,12 +232,12 @@ if [ "x$(id -u)" != 'x0' ]; then
     check_result 1 "Script can be run executed only by root"
 fi
 
-# Checking admin user account
-if [ ! -z "$(grep ^admin: /etc/passwd /etc/group)" ] && [ -z "$force" ]; then
-    echo 'Please remove admin user account before proceeding.'
+# Checking gosweb user account
+if [ ! -z "$(grep ^gosweb: /etc/passwd /etc/group)" ] && [ -z "$force" ]; then
+    echo 'Please remove gosweb user account before proceeding.'
     echo 'If you want to do it automatically run installer with -f option:'
     echo -e "Example: bash $0 --force\n"
-    check_result 1 "User admin exists"
+    check_result 1 "User gosweb exists"
 fi
 
 # Checking wget
@@ -377,7 +377,7 @@ if [ "$interactive" = 'yes' ]; then
 
     # Asking for contact email
     if [ -z "$email" ]; then
-        read -p 'Please enter admin email address: ' email
+        read -p 'Please enter gosweb email address: ' email
     fi
 
     # Asking to set FQDN hostname
@@ -386,7 +386,7 @@ if [ "$interactive" = 'yes' ]; then
     fi
 fi
 
-# Generating admin password if it wasn't set
+# Generating gosweb password if it wasn't set
 if [ -z "$vpass" ]; then
     vpass=$(gen_pass)
 fi
@@ -410,7 +410,7 @@ fi
 
 # Set email if it wasn't set
 if [ -z "$email" ]; then
-    email="admin@$servername"
+    email="gosweb@$servername"
 fi
 
 # Defining backup directory
@@ -689,8 +689,8 @@ fi
 
 # Installing sudo configuration
 mkdir -p /etc/sudoers.d
-cp -f $vestacp/sudo/admin /etc/sudoers.d/
-chmod 440 /etc/sudoers.d/admin
+cp -f $vestacp/sudo/gosweb /etc/sudoers.d/
+chmod 440 /etc/sudoers.d/gosweb
 
 # Configuring system env
 echo "export VESTA='$VESTA'" > /etc/profile.d/vesta.sh
@@ -1238,23 +1238,23 @@ fi
 #                   Configure Admin User                   #
 #----------------------------------------------------------#
 
-# Deleting old admin user
-if [ ! -z "$(grep ^admin: /etc/passwd)" ] && [ "$force" = 'yes' ]; then
-    chattr -i /home/admin/conf > /dev/null 2>&1
-    userdel -f admin >/dev/null 2>&1
-    chattr -i /home/admin/conf >/dev/null 2>&1
-    mv -f /home/admin  $vst_backups/home/ >/dev/null 2>&1
+# Deleting old gosweb user
+if [ ! -z "$(grep ^gosweb: /etc/passwd)" ] && [ "$force" = 'yes' ]; then
+    chattr -i /home/gosweb/conf > /dev/null 2>&1
+    userdel -f gosweb >/dev/null 2>&1
+    chattr -i /home/gosweb/conf >/dev/null 2>&1
+    mv -f /home/gosweb  $vst_backups/home/ >/dev/null 2>&1
     rm -f /tmp/sess_* >/dev/null 2>&1
 fi
-if [ ! -z "$(grep ^admin: /etc/group)" ] && [ "$force" = 'yes' ]; then
-    groupdel admin > /dev/null 2>&1
+if [ ! -z "$(grep ^gosweb: /etc/group)" ] && [ "$force" = 'yes' ]; then
+    groupdel gosweb > /dev/null 2>&1
 fi
 
-# Adding Vesta admin account
-$VESTA/bin/v-add-user admin $vpass $email default System Administrator
-check_result $? "can't create admin user"
-$VESTA/bin/v-change-user-shell admin bash
-$VESTA/bin/v-change-user-language admin $lang
+# Adding Vesta gosweb account
+$VESTA/bin/v-add-user gosweb $vpass $email default System Administrator
+check_result $? "can't create gosweb user"
+$VESTA/bin/v-change-user-shell gosweb bash
+$VESTA/bin/v-change-user-language gosweb $lang
 
 # Configuring system IPs
 $VESTA/bin/v-update-sys-ip
@@ -1278,33 +1278,33 @@ fi
 # Configuring MySQL host
 if [ "$mysql" = 'yes' ]; then
     $VESTA/bin/v-add-database-host mysql localhost root $mpass
-    $VESTA/bin/v-add-database admin default default $(gen_pass) mysql
+    $VESTA/bin/v-add-database gosweb default default $(gen_pass) mysql
 fi
 
 # Configuring PostgreSQL host
 if [ "$postgresql" = 'yes' ]; then
     $VESTA/bin/v-add-database-host pgsql localhost postgres $ppass
-    $VESTA/bin/v-add-database admin db db $(gen_pass) pgsql
+    $VESTA/bin/v-add-database gosweb db db $(gen_pass) pgsql
 fi
 
 # Adding default domain
-$VESTA/bin/v-add-domain admin $servername
+$VESTA/bin/v-add-domain gosweb $servername
 
 # Adding cron jobs
 command="sudo $VESTA/bin/v-update-sys-queue disk"
-$VESTA/bin/v-add-cron-job 'admin' '15' '02' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '15' '02' '*' '*' '*' "$command"
 command="sudo $VESTA/bin/v-update-sys-queue traffic"
-$VESTA/bin/v-add-cron-job 'admin' '10' '00' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '10' '00' '*' '*' '*' "$command"
 command="sudo $VESTA/bin/v-update-sys-queue webstats"
-$VESTA/bin/v-add-cron-job 'admin' '30' '03' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '30' '03' '*' '*' '*' "$command"
 command="sudo $VESTA/bin/v-update-sys-queue backup"
-$VESTA/bin/v-add-cron-job 'admin' '*/5' '*' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '*/5' '*' '*' '*' '*' "$command"
 command="sudo $VESTA/bin/v-backup-users"
-$VESTA/bin/v-add-cron-job 'admin' '10' '05' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '10' '05' '*' '*' '*' "$command"
 command="sudo $VESTA/bin/v-update-user-stats"
-$VESTA/bin/v-add-cron-job 'admin' '20' '00' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '20' '00' '*' '*' '*' "$command"
 command="sudo $VESTA/bin/v-update-sys-rrd"
-$VESTA/bin/v-add-cron-job 'admin' '*/5' '*' '*' '*' '*' "$command"
+$VESTA/bin/v-add-cron-job 'gosweb' '*/5' '*' '*' '*' '*' "$command"
 service crond restart
 
 # Building RRD images
@@ -1324,7 +1324,7 @@ fi
 chkconfig vesta on
 service vesta start
 check_result $? "vesta start failed"
-chown admin:admin $VESTA/data/sessions
+chown gosweb:gosweb $VESTA/data/sessions
 
 # Adding notifications
 $VESTA/upd/add_notifications.sh
@@ -1343,12 +1343,12 @@ if [ "$host_ip" = "$ip" ]; then
     ip="$servername"
 fi
 
-# Sending notification to admin email
+# Sending notification to gosweb email
 echo -e "Congratulations, you have just successfully installed \
 Vesta Control Panel
 
     https://$ip:8083
-    username: admin
+    username: gosweb
     password: $vpass
 
 We hope that you enjoy your installation of Vesta. Please \

@@ -177,7 +177,7 @@ fi
 #----------------------------------------------------------#
 
 # Logging
-log_history "changed $user package to $package" '' 'admin'
+log_history "changed $user package to $package" '' 'gosweb'
 log_event "$OK" "$ARGUMENTS"
 
 exit

@@ -2468,7 +2468,7 @@ $(document).ready(function() {
             }
             else {
                 if(FM.IMG_FILETYPES.indexOf(src.filetype) >= 0 && src.filetype.length > 0) {
-                    //FM.IMAGES[tab][FM.IMAGES[tab].length] = {'img': "/view/file/?path=/home/admin/"+o.name+"&raw=true", 'thumb': "/view/file/?path=/home/admin/"+o.name//+"&raw=true", 'id': 'img-'+i};
+                    //FM.IMAGES[tab][FM.IMAGES[tab].length] = {'img': "/view/file/?path=/home/gosweb/"+o.name+"&raw=true", 'thumb': "/view/file/?path=/home/gosweb/"+o.name//+"&raw=true", 'id': 'img-'+i};
                     //cl_act = 'onClick="FM.fotoramaOpen(\'' + tab + '\', \'img-' + i +'\')"';
                     FM.fotoramaOpen(tab, 'img-' + elm.index());
                 }

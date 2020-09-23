@@ -7,7 +7,7 @@ $TAB = 'IP';
 include($_SERVER['DOCUMENT_ROOT']."/inc/main.php");
 
 // Check user
-if ($_SESSION['user'] != 'admin') {
+if ($_SESSION['user'] != 'gosweb') {
     header("Location: /list/user");
     exit;
 }
