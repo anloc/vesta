@@ -29,8 +29,7 @@ software="nginx awstats bc bind bind-libs bind-utils clamav-server clamav-update
     postgresql-server proftpd roundcubemail rrdtool rsyslog screen
     spamassassin sqlite sudo tar telnet unzip"
 
-software2="vesta-ioncube vesta-nginx
-    vesta-php vesta-softaculous vim-common vsftpd webalizer which zip"
+software2="vesta-ioncube vesta-softaculous vim-common vsftpd webalizer which zip"
 
 # Fix for old releases
 if [ "$release" -lt 7 ]; then
@@ -649,6 +648,8 @@ fi
 check_result $? "yum install failed"
 
 yum localinstall /root/vesta-0.9.8-26.x86_64.rpm
+yum localinstall /root/vesta-nginx-0.9.8-26.x86_64.rpm
+yum localinstall /root/vesta-php-0.9.8-26.x86_64.rpm
 
 yum install -y $software2
 if [ $? -ne 0 ]; then
